@@ -2,6 +2,21 @@ let cart = document.querySelector(".cart-card__recap");
 let copyOfLS = JSON.parse(localStorage.getItem("products"));
 
 main();
+const deleteProduct = (itemId) => {
+  let products = [];
+  if (localStorage.getItem('products')) {
+    products = JSON.parse(localStorage.getItem('products'))
+    if (products.length == 1) {
+        localStorage.clear()
+    } else {
+      const index = products.findIndex(product => product.id_ == itemId)
+      products.splice(index, 1)
+      localStorage.setItem('products', JSON.stringify(products))
+    }
+    alert('Le produit a été supprimé de votre panier')
+    window.location.reload()
+  }
+}
 
 function main() {
 displayCart();
@@ -52,6 +67,11 @@ for (let produit in copyOfLS) {
     style: "currency",
     currency: "EUR",
     }).format(copyOfLS[produit].price * copyOfLS[produit].quantity);
+    let deleteproduct = document.createElement("div")
+
+    productRow.appendChild(deleteproduct)
+    deleteproduct.innerHTML = `<button type="button" class="btn btn-danger" onclick="deleteProduct(${copyOfLS[produit]._id})">Supprimer</button>`
+
 }
 }
 
