@@ -1,0 +1,5 @@
+Ouvrir le terminal git bash sur visual studio code 
+taper : cd backend
+taper : node server 
+Puis vous allez voir "Listening on port 3000"
+Et la vous avez connecté le server .
