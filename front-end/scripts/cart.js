@@ -9,7 +9,7 @@ const deleteProduct = (itemId) => {
     if (products.length == 1) {
         localStorage.clear()
     } else {
-      const index = products.findIndex(product => product.id_ == itemId)
+      const index = products.findIndex(product => product._id == itemId)
       products.splice(index, 1)
       localStorage.setItem('products', JSON.stringify(products))
     }
