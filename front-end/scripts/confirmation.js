@@ -2,6 +2,7 @@
 main();
 
 function main() {
+  console.log(localStorage);
 displayOrderIdAndPrice();
 }
 
